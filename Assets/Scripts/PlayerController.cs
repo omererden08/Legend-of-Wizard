@@ -21,7 +21,6 @@ public class PlayerController : MonoBehaviour
      public bool canDash = true;
      public bool isDashing;
     */
-    public ExperienceSystem experienceSystem;
 
 
 
@@ -96,7 +95,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Exp"))
         {
             Destroy(other.gameObject);
-            experienceSystem.HandleExperienceChange();
+            ExperienceSystem.instance.HandleExperienceChange();
         }
     }
 

@@ -9,9 +9,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1f, Random.Range(1f, 4f));
-        InvokeRepeating("SpawnProjectile", 2f, 5f);
-       /* Invoke("Spawn", 1f); //testing*/
+        InvokeRepeating("SpawnEnemy", 1f, 1f);
+        InvokeRepeating("SpawnProjectile", 2f, 1f);
+       /* Invoke("SpawnEnemy", 1f); //testing*/
     }
 
     Vector2 SpawnPos()

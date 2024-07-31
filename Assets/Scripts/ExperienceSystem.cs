@@ -10,7 +10,19 @@ public class ExperienceSystem : MonoBehaviour
     [SerializeField] private int maxExperience;
     [SerializeField] private int newExperience;
 
+    public static ExperienceSystem instance;
 
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(instance);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     private void Start()
     {   
         currentLevel = 0;
@@ -22,7 +34,9 @@ public class ExperienceSystem : MonoBehaviour
     public void HandleExperienceChange()
     {    
         currentExperience += newExperience;
-        if (currentExperience > maxExperience)
+
+        print("current exp = " + currentExperience);
+        if (currentExperience >= maxExperience)
         {
             LevelUp();
         }
