@@ -36,7 +36,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("damage");
             healthSystem.TakeDamage();
         }
     }
@@ -50,7 +49,6 @@ public class EnemyMovement : MonoBehaviour
                 if (cooldown < 0)
                 {
                     healthSystem.TakeDamage();
-                    print("stilldamage");
                     cooldown = 2f;
                 }
                 else
@@ -61,7 +59,6 @@ public class EnemyMovement : MonoBehaviour
             else if (healthSystem.currentHealth <= 0)
             {
                 healthSystem.currentHealth = 0;
-                print("dead");
             }
         }
     }

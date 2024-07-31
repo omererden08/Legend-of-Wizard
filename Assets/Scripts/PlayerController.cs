@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             ExperienceSystem.instance.HandleExperienceChange();
+            print("a");
         }
     }
 

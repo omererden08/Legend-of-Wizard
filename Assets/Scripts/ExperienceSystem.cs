@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +17,12 @@ public class ExperienceSystem : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
-            Destroy(instance);
+            Destroy(instance.gameObject);
         }
         else
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
     private void Start()
@@ -34,7 +36,6 @@ public class ExperienceSystem : MonoBehaviour
     public void HandleExperienceChange()
     {    
         currentExperience += newExperience;
-
         print("current exp = " + currentExperience);
         if (currentExperience >= maxExperience)
         {
