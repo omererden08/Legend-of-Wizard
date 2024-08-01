@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
      public bool canDash = true;
      public bool isDashing;
     */
+    private float cooldown = 1f;
 
 
 
@@ -98,7 +99,35 @@ public class PlayerController : MonoBehaviour
             ExperienceSystem.instance.HandleExperienceChange();
             print("a");
         }
+        
     }
-
-
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            HealthSystem.instance.TakeDamage();
+        }
+    }
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (HealthSystem.instance.currentHealth > 0)
+            {
+                if (cooldown < 0)
+                {
+                    HealthSystem.instance.TakeDamage();
+                    cooldown = 2f;
+                }
+                else
+                {
+                    cooldown -= Time.deltaTime;
+                }
+            }
+            else if (HealthSystem.instance.currentHealth <= 0)
+            {
+                HealthSystem.instance.currentHealth = 0;
+            }
+        }
+    }
 }

@@ -5,33 +5,54 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-    public Transform enemyPos;
+    private Transform target;
     public Transform player;
     public HealthSystem healthSystem;
     private Rigidbody2D rb;
-    private float speed = 3f;
+    private float speed = 5f;
 
     public static event Action OnEnemyDestroyed;
 
 
     private void Start()
     {
+        target = FindClosestEnemy();
         rb = GetComponent<Rigidbody2D>();
-        enemyPos = GameObject.FindGameObjectWithTag("Enemy").transform;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         healthSystem = FindAnyObjectByType<HealthSystem>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        if(enemyPos != null)
+        if(target != null)
         {
-            //spawnpos kamera içinde olacak þekilde ayarla
-            Vector2 direction = (enemyPos.transform.position - transform.position).normalized;
+            Vector2 direction = (target.position - transform.position).normalized;
             rb.velocity = direction * speed;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         }
         
     }
+
+    Transform FindClosestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        Transform closest = null;
+        float closestDistance = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = (enemy.transform.position - currentPosition).sqrMagnitude;
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                closest = enemy.transform;
+            }
+        }
+
+        return closest;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))

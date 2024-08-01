@@ -32,13 +32,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            healthSystem.TakeDamage();
-        }
-    }
+    
 
     private void OnCollisionStay2D(Collision2D other)
     {
