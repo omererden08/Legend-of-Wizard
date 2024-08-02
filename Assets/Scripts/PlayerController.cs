@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
     
     void HandleMovement()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
         rb.velocity = moveDirection * speed * Time.deltaTime;
 
