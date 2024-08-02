@@ -405,9 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73cb7a1763bca7747acf2fc70a420179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  accelerationSpeed: 100
-  maxSpeed: 100
+  speed: 100
 --- !u!61 &1264269763
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -498,6 +496,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  enemyData: {fileID: 0}
+  goblin: {fileID: 0}
+  bandit: {fileID: 0}
+  ogre: {fileID: 0}
 --- !u!1 &1602702638
 GameObject:
   m_ObjectHideFlags: 0

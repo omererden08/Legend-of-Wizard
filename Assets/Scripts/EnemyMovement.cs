@@ -11,7 +11,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float speed = 2f;
     private float rotationSpeed = 200f;
-    private float cooldown = 1f;
 
 
     private void Start()
@@ -34,28 +33,7 @@ public class EnemyMovement : MonoBehaviour
 
     
 
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (healthSystem.currentHealth > 0)
-            {
-                if (cooldown < 0)
-                {
-                    healthSystem.TakeDamage();
-                    cooldown = 2f;
-                }
-                else
-                {
-                    cooldown -= Time.deltaTime;
-                }
-            }
-            else if (healthSystem.currentHealth <= 0)
-            {
-                healthSystem.currentHealth = 0;
-            }
-        }
-    }
+    
     private void OnDestroy()
     {
         Instantiate(experience.experiencePrefab, transform.position, Quaternion.identity);

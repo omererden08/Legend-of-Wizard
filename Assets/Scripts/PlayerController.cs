@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     [SerializeField] private float speed;
-    [SerializeField] private float accelerationSpeed;
-    [SerializeField] private float maxSpeed;
     //Dash
     /* [SerializeField] private float dashingTime;
      [SerializeField] private float dashingCooldown;
@@ -27,13 +25,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        
-        speed = 0;
+        rb = GetComponent<Rigidbody2D>();    
     }
     private void Update()
     {
-        ManageSpeed();
 
       /*  if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -48,36 +43,24 @@ public class PlayerController : MonoBehaviour
         }*/
         HandleMovement();
     }
-    void ManageSpeed()
-    {
-        if (verticalInput != 0 || horizontalInput != 0 && speed < maxSpeed)
-        {
-            speed += accelerationSpeed * Time.deltaTime;
-        }
-        else if (verticalInput == 0 || horizontalInput == 0)
-        {
-            speed -= accelerationSpeed * Time.deltaTime;
-        }
-        if (speed > maxSpeed)
-        {
-            speed = maxSpeed;
-        }
-        else if (speed < 0)
-        {
-            speed = 0;
-        }
-    }
+    
     void HandleMovement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
-        rb.velocity = moveDirection * speed * Time.fixedDeltaTime;
+        rb.velocity = moveDirection * speed * Time.deltaTime;
 
-       /* if(moveDirection != Vector3.zero)
+        if (moveDirection.magnitude > 1)
         {
-            dashDirection = moveDirection;
-        }*/
+            moveDirection.Normalize();
+        }
+
+
+        /* if(moveDirection != Vector3.zero)
+         {
+             dashDirection = moveDirection;
+         }*/
     }
     /* private IEnumerator Dash()
      {

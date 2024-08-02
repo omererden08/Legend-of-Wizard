@@ -36,9 +36,9 @@ public class HealthSystem : MonoBehaviour
     {
         if (currentHealth > 0)
         {
-            switch(enemyData.enemyDamage)
+          /*  switch(enemyData.enemyDamage)
             {
-                case 1:
+                case goblin:
                     health -= 5;
                     currentHealth = health;
                     break;
@@ -53,7 +53,7 @@ public class HealthSystem : MonoBehaviour
 
             }
             
-            
+            */
             
             health -= 10;
             currentHealth = health;
