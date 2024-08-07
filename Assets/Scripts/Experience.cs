@@ -18,8 +18,8 @@ public class Experience : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         collectDistance = 2.5f;
-        speed = 3f;
-        maxSpeed = 10f;
+        speed = 20f;
+        maxSpeed = 100f;
     }
 
 
