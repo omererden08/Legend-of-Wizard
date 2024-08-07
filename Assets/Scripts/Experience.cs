@@ -10,6 +10,8 @@ public class Experience : MonoBehaviour
     private float maxSpeed;
     private float speed;
     private Rigidbody2D rb;
+    private float rotationSpeed = 200f;
+
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class Experience : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(rb != null)
         {
@@ -32,9 +34,11 @@ public class Experience : MonoBehaviour
             {
                 Vector2 direction = (target.position - transform.position).normalized;
 
-                rb.velocity += direction * speed * Time.deltaTime;
+                rb.velocity += direction * speed * Time.fixedDeltaTime;
 
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+                rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
 
             }
         }     

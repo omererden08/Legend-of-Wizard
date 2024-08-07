@@ -10,6 +10,7 @@ public class BulletMovement : MonoBehaviour
     public HealthSystem healthSystem;
     private Rigidbody2D rb;
     private float speed = 5f;
+    private float rotationSpeed = 200f;
 
     public static event Action OnEnemyDestroyed;
 
@@ -28,8 +29,9 @@ public class BulletMovement : MonoBehaviour
             Vector2 direction = (target.position - transform.position).normalized;
             rb.velocity = direction * speed;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
         }
-        
+
     }
 
     Transform FindClosestEnemy()

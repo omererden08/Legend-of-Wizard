@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
      public bool canDash = true;
      public bool isDashing;
     */
+    //Animation
+    private Animator animator;
+    private bool isRight;
+    private bool isMoving;
+
     private float cooldown = 1f;
 
 
@@ -26,9 +31,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();    
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
+        MoveAnimation();
 
       /*  if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -112,5 +119,60 @@ public class PlayerController : MonoBehaviour
                 HealthSystem.instance.currentHealth = 0;
             }
         }
+    } 
+    void MoveAnimation()
+        
+    {
+        bool isMovingRight = rb.velocity.x > 0;
+        bool isMovingLeft = rb.velocity.x < 0;
+        bool isNotMovingHorizontal = rb.velocity.x == 0;
+        bool isMovingUp = rb.velocity.y > 0;
+        bool isMovingDown = rb.velocity.y < 0;
+        bool isNotMovingVertical = rb.velocity.y == 0;
+
+        if (isMovingRight)
+        {
+            isRight = true;
+        }
+        else if (isMovingLeft)
+        {
+            isRight = false;
+        }
+
+        switch (true)
+        {
+            case bool _ when isMovingRight || (isMovingUp && isRight) || (isMovingDown && isRight):
+                animator.SetBool("MoveRight", true);
+                animator.SetBool("MoveLeft", false);
+                break;
+
+            case bool _ when isMovingLeft || (isMovingUp && !isRight) || (isMovingDown && !isRight):
+                animator.SetBool("MoveLeft", true);
+                animator.SetBool("MoveRight", false);
+                break;
+
+            case bool _ when isNotMovingHorizontal && isRight:
+                animator.SetBool("MoveRight", false);
+                animator.SetBool("MoveLeft", false);
+                break;
+
+            case bool _ when isNotMovingHorizontal && !isRight:
+                animator.SetBool("MoveLeft", false);
+                animator.SetBool("MoveRight", false);
+                break;
+
+            case bool _ when isNotMovingVertical && isRight:
+                animator.SetBool("MoveRight", false);
+                animator.SetBool("MoveLeft", false);
+                break;
+
+            case bool _ when isNotMovingVertical && !isRight:
+                animator.SetBool("MoveLeft", false);
+                animator.SetBool("MoveRight", false);
+                break;
+        }
+
     }
+
 }
+
