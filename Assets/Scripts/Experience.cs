@@ -18,8 +18,8 @@ public class Experience : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
         collectDistance = 2.5f;
-        speed = 20f;
-        maxSpeed = 100f;
+        speed = 3f;
+        maxSpeed = 10f;
     }
 
 
@@ -32,7 +32,9 @@ public class Experience : MonoBehaviour
 
             if (distance < collectDistance && maxSpeed > speed)
             {
-                Vector2 direction = (target.position - transform.position).normalized;
+                Vector2 direction = (target.position - transform.position);
+                
+                direction.Normalize();
 
                 rb.velocity += direction * speed * Time.fixedDeltaTime;
 

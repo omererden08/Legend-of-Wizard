@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
     [SerializeField] private float speed;
+
     //Dash
     /* [SerializeField] private float dashingTime;
      [SerializeField] private float dashingCooldown;
@@ -21,7 +22,9 @@ public class PlayerController : MonoBehaviour
     */
     //Animation
     private Animator animator;
-    private bool isRight;
+    private Collider2D colliderPlayer;
+    Quaternion targetRotation;
+    [SerializeField]private bool isRight;
     private bool isMoving;
 
     private float cooldown = 1f;
@@ -32,37 +35,27 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();    
         animator = GetComponent<Animator>();
+        colliderPlayer = GetComponent<Collider2D>();
+        isRight = false;
     }
     private void Update()
     {
-        MoveAnimation();
-
-      /*  if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(Dash());
-        }*/
+        CheckRotation();
     }
+
     private void FixedUpdate()
     {
-       /* if (isDashing)
-        {
-            return;   
-        }*/
         HandleMovement();
     }
-    
+
+
     void HandleMovement()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
         Vector2 moveDirection = new Vector2(horizontalInput, verticalInput);
-        rb.velocity = moveDirection * speed * Time.deltaTime;
-
-        if (moveDirection.magnitude > 1)
-        {
-            moveDirection.Normalize();
-        }
-
+        rb.velocity = moveDirection * speed * Time.fixedDeltaTime;
+        MoveAnimation();
 
         /* if(moveDirection != Vector3.zero)
          {
@@ -173,6 +166,21 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    void CheckRotation()
+    {
+        if (!isRight)
+        {
+            targetRotation = Quaternion.Euler(colliderPlayer.transform.eulerAngles.x, 0, colliderPlayer.transform.eulerAngles.z);
+            print("sol");
+        }
+        if (isRight)
+        {
+            targetRotation = Quaternion.Euler(colliderPlayer.transform.eulerAngles.x, -180, colliderPlayer.transform.eulerAngles.z);
+            print("sag");
+        }
+        colliderPlayer.transform.rotation = targetRotation;
+    }
+
 
 }
 

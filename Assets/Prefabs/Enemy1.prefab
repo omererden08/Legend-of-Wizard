@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6398376413886584522}
   - component: {fileID: 4856094553875991076}
   - component: {fileID: 9125074066234502746}
-  - component: {fileID: -8018805443360472405}
+  - component: {fileID: -3803810577519888797}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -147,8 +147,8 @@ MonoBehaviour:
   experience: {fileID: 11400000, guid: 262474acfb066884da49692dfde2fd95, type: 2}
   healthSystem: {fileID: 0}
   player: {fileID: 0}
-  speed: 2
---- !u!50 &-8018805443360472405
+  speed: 20
+--- !u!50 &-3803810577519888797
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -174,4 +174,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
