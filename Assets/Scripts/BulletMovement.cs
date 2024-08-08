@@ -10,6 +10,7 @@ public class BulletMovement : MonoBehaviour, IPooledObject
     public HealthSystem healthSystem;
     private Rigidbody2D rb;
     public ExperienceData experience;
+    [SerializeField]
     private float speed = 5f;
     private float rotationSpeed = 200f;
 
