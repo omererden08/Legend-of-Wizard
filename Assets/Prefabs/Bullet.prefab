@@ -161,7 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f760edaa9a23945ab1863e6fca7af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPos: {fileID: 0}
   player: {fileID: 0}
   healthSystem: {fileID: 0}
-  experiencePrefab: {fileID: 4388913920233232816, guid: fea54d180eb981b4dbd4a1136930611d, type: 3}
+  experience: {fileID: 11400000, guid: 262474acfb066884da49692dfde2fd95, type: 2}

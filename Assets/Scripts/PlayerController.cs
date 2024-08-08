@@ -78,7 +78,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Exp"))
         {
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
+            //Destroy(other.gameObject);
             ExperienceSystem.instance.HandleExperienceChange();
             print("a");
         }

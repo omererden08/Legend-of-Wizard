@@ -582,6 +582,66 @@ MonoBehaviour:
   currentExperience: 0
   maxExperience: 0
   newExperience: 0
+--- !u!1 &2070121111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2070121113}
+  - component: {fileID: 2070121112}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2070121112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070121111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f48a4f12009fa542a50d24c43e32b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: enemy1
+    prefab: {fileID: 2991505004193500428, guid: 7126d355504624d47acfd3238277202d, type: 3}
+    size: 25
+  - tag: enemy2
+    prefab: {fileID: 8074223809656428511, guid: 6224cae10bf5e054da122931e5fb1ef6, type: 3}
+    size: 25
+  - tag: enemy3
+    prefab: {fileID: 74661151909574750, guid: 6d1deaa1bd231a14a9c43b01bc12abe9, type: 3}
+    size: 25
+  - tag: projectile
+    prefab: {fileID: 1901422814893075490, guid: 3afd9cc5bf5318a4a907a96536107d82, type: 3}
+    size: 10
+  - tag: experience
+    prefab: {fileID: 4388913920233232816, guid: fea54d180eb981b4dbd4a1136930611d, type: 3}
+    size: 20
+--- !u!4 &2070121113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070121111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -591,3 +651,4 @@ SceneRoots:
   - {fileID: 1015879087}
   - {fileID: 1427374937}
   - {fileID: 1602702639}
+  - {fileID: 2070121113}

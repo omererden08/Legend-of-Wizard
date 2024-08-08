@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class BulletMovement : MonoBehaviour, IPooledObject
 {
     private Transform target;
     public Transform player;
     public HealthSystem healthSystem;
     private Rigidbody2D rb;
+    public ExperienceData experience;
     private float speed = 5f;
     private float rotationSpeed = 200f;
 
-    public static event Action OnEnemyDestroyed;
+   // public static event Action OnEnemyDestroyed;
 
 
-    private void Start()
+    public void OnObjectSpawn()
     {
         target = FindClosestEnemy();
         rb = GetComponent<Rigidbody2D>();
@@ -59,9 +60,14 @@ public class BulletMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-            OnEnemyDestroyed?.Invoke();
+          //  Destroy(gameObject);
+          //  Destroy(other.gameObject);
+          //  OnEnemyDestroyed?.Invoke();
+            gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
+            ObjectPool.instance.SpawnFromPool("experience", transform.position, Quaternion.identity);
+
+
         }
     }
 

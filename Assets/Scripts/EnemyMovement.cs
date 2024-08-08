@@ -5,7 +5,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour, IPooledObject
 {
     public ExperienceData experience;
     public HealthSystem healthSystem;
@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private float rotationSpeed = 200f;
 
 
-    private void Start()
+    public void OnObjectSpawn()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
@@ -33,13 +33,5 @@ public class EnemyMovement : MonoBehaviour
              float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
              rb.rotation = Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime);
          } 
-    }
-
-
-
-
-    private void OnDestroy()
-    {
-        Instantiate(experience.experiencePrefab, transform.position, Quaternion.identity);
     }
 }
