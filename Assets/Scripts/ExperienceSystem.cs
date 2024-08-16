@@ -45,7 +45,7 @@ public class ExperienceSystem : MonoBehaviour
 
     void LevelUp()
     {
-        print("level up");
+        print("level up"); //delaying collect next exp
         currentExperience = 0;
         currentLevel += 1;
         maxExperience *= 2;

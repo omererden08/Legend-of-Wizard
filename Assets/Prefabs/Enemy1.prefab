@@ -144,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91dcb193c1f52a4a8645dcbf6154bcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: {fileID: 11400000, guid: 262474acfb066884da49692dfde2fd95, type: 2}
   healthSystem: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: fb9e81ae8b2b64a43b8b8c0080cd9b93, type: 2}
   player: {fileID: 0}
   speed: 20
 --- !u!50 &-3803810577519888797

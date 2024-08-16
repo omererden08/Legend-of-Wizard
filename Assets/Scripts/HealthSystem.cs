@@ -7,10 +7,7 @@ public class HealthSystem : MonoBehaviour
     public static int health = 100;
     public int currentHealth;
     public EnemyData enemyData;
-    public EnemyData goblin;
-    public EnemyData bandit;
-    public EnemyData ogre;
-
+    private int damage;
     public static HealthSystem instance;
 
     private void Awake()
@@ -30,38 +27,21 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         currentHealth = health;
-      //  print("health = " + currentHealth);
+        damage = enemyData.enemyDamage;
+        print("current health = " + currentHealth);
     }
-    public void TakeDamage()
+    public void PlayerTakeDamage()
     {
         if (currentHealth > 0)
         {
-          /*  switch(enemyData.enemyDamage)
-            {
-                case goblin:
-                    health -= 5;
-                    currentHealth = health;
-                    break;
-                case 2:
-                    health -= 10;
-                    currentHealth = health;
-                    break;
-                case 3:
-                    health -= 15;
-                    currentHealth = health;
-                    break;
-
-            }
-            
-            */
-            
-            health -= 10;
+            health -= damage;
             currentHealth = health;
-           // Debug.Log("currenthealth = " + currentHealth);
-        }  
+            print("current health = " + currentHealth);
+        }
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            print("died");
         }
     }
 }

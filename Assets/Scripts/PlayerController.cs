@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            HealthSystem.instance.TakeDamage();
+            HealthSystem.instance.PlayerTakeDamage();
         }
     }
     private void OnCollisionStay2D(Collision2D other)
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (cooldown < 0)
                 {
-                    HealthSystem.instance.TakeDamage();
+                    HealthSystem.instance.PlayerTakeDamage();
                     cooldown = 2f;
                 }
                 else
@@ -172,12 +172,10 @@ public class PlayerController : MonoBehaviour
         if (!isRight)
         {
             targetRotation = Quaternion.Euler(colliderPlayer.transform.eulerAngles.x, 0, colliderPlayer.transform.eulerAngles.z);
-            print("sol");
         }
         if (isRight)
         {
             targetRotation = Quaternion.Euler(colliderPlayer.transform.eulerAngles.x, -180, colliderPlayer.transform.eulerAngles.z);
-            print("sag");
         }
         colliderPlayer.transform.rotation = targetRotation;
     }

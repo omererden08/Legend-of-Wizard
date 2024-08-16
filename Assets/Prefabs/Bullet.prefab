@@ -164,3 +164,4 @@ MonoBehaviour:
   player: {fileID: 0}
   healthSystem: {fileID: 0}
   experience: {fileID: 11400000, guid: 262474acfb066884da49692dfde2fd95, type: 2}
+  speed: 20

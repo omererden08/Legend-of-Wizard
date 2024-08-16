@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7451f487885d29741b290e1a019f5d5b, type: 3}
-  m_Name: Goblin
+  m_Script: {fileID: 11500000, guid: 92bf1d55379f7304f8cd250bf353a563, type: 3}
+  m_Name: Bandit
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 7482667652216324306, guid: 3aaffdd213d35514d9bca6b12a69bbb9, type: 3}
-  enemyName: Goblin
-  enemyHealth: 50
-  enemyDamage: 25
-  enemySpeed: 100
+  enemyHealth: 100
+  enemyDamage: 20

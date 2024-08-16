@@ -9,10 +9,11 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("SpawnEnemy", 1f, 3f);
-        
-        InvokeRepeating("SpawnProjectile", 2f, 5f);
-       /* Invoke("SpawnEnemy", 1f); //testing*/
+        InvokeRepeating("SpawnEnemy", 1f, 2f);
+        InvokeRepeating("SpawnEnemy2", 1f, 2f);
+      //  InvokeRepeating("SpawnProjectile", 2.5f, 1f);
+      //  Invoke("SpawnEnemy", 1f); //testing*/
+       // Invoke("SpawnEnemy2", 1f); //testing*/
     }
     
     Vector2 SpawnPos1()
@@ -41,19 +42,24 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        //  int randomIndex = Random.Range(0, enemyPrefabs.Length);
        
-        ObjectPool.instance.SpawnFromPool("enemy1", SpawnPos1(), Quaternion.identity);
-        ObjectPool.instance.SpawnFromPool("enemy2", SpawnPos2(), Quaternion.identity);
+       // ObjectPool.instance.SpawnFromPool("enemy1", SpawnPos1(), Quaternion.identity);
+       // ObjectPool.instance.SpawnFromPool("enemy2", SpawnPos2(), Quaternion.identity);
         ObjectPool.instance.SpawnFromPool("enemy3", SpawnPos1(), Quaternion.identity);
-        
-
-        print("Enemy spawned");
+      
     }
-    void SpawnProjectile()
-    {
-        ObjectPool.instance.SpawnFromPool("projectile", player.position, Quaternion.identity);
 
-        //   Instantiate(bulletPrefab, player.transform.position, Quaternion.identity);
+    void SpawnEnemy2()
+    {
+        
+        ObjectPool.instance.SpawnFromPool("enemy1", SpawnPos1(), Quaternion.identity);
+       // ObjectPool.instance.SpawnFromPool("enemy2", SpawnPos2(), Quaternion.identity);
+       // ObjectPool.instance.SpawnFromPool("enemy3", SpawnPos1(), Quaternion.identity);
+
+    }
+
+    void SpawnProjectile()
+    {  
+        ObjectPool.instance.SpawnFromPool("projectile", player.position, Quaternion.identity);
     }
 }
