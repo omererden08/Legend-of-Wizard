@@ -145,10 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 0}
-  enemyData: {fileID: 11400000, guid: 8a6022b842a37d14a9cf55daaa846ef3, type: 2}
+  enemyData: {fileID: 11400000, guid: 0f9e92d9700c77d459b504b39494f06c, type: 2}
   player: {fileID: 0}
   speed: 20
-  bulletDamage: 0
 --- !u!50 &33558129623466256
 Rigidbody2D:
   serializedVersion: 4

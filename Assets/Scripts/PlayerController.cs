@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private bool isRight;
     private bool isMoving;
 
+    Enemy enemy;
+    HealthSystem player;
     private float cooldown = 1f;
 
 
@@ -89,7 +91,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            HealthSystem.instance.PlayerTakeDamage();
+            enemy = other.gameObject.GetComponent<Enemy>();
+            enemy.AttackPlayer(player);
         }
     }
     private void OnCollisionStay2D(Collision2D other)
@@ -100,7 +103,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (cooldown < 0)
                 {
-                    HealthSystem.instance.PlayerTakeDamage();
+                    enemy = other.gameObject.GetComponent<Enemy>();
+                    enemy.AttackPlayer(player);
                     cooldown = 2f;
                 }
                 else

@@ -10,12 +10,14 @@ public class Enemy : MonoBehaviour, IPooledObject
     public HealthSystem healthSystem;
     public EnemyData enemyData;
     public Transform player;
-    private Rigidbody2D rb;
+    private Rigidbody2D rb;   
     [SerializeField]
     private float speed = 2f;
     private float rotationSpeed = 200f;
     private int health;
-    public int bulletDamage;
+    private int bulletDamage;
+
+
 
     public void OnObjectSpawn()
     {
@@ -42,16 +44,20 @@ public class Enemy : MonoBehaviour, IPooledObject
     {
         if(health > 0)
         {
-            health -= bulletDamage;
-           
+            health -= bulletDamage;           
         }
         else if(health <= 0)
         {
             health = 0;
             gameObject.SetActive(false);
-            
+            ObjectPool.instance.SpawnFromPool("experience", transform.position, Quaternion.identity);
+
         }
     }
 
+    public void AttackPlayer(HealthSystem player)
+    {
+        player.PlayerTakeDamage(enemyData.enemyDamage);
+    }
 
 }

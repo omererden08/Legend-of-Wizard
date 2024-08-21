@@ -27,10 +27,9 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         currentHealth = health;
-        damage = enemyData.enemyDamage;
         print("current health = " + currentHealth);
     }
-    public void PlayerTakeDamage()
+    public void PlayerTakeDamage(int damage)
     {
         if (currentHealth > 0)
         {

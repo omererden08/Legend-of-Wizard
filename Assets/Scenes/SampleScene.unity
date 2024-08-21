@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1264269759}
+  minRadius: 10
+  maxRadius: 12
   enemyPrefabs:
   - {fileID: 2991505004193500428, guid: 7126d355504624d47acfd3238277202d, type: 3}
   - {fileID: 8074223809656428511, guid: 6224cae10bf5e054da122931e5fb1ef6, type: 3}
@@ -530,6 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
+  enemyData: {fileID: 0}
 --- !u!1 &1602702638
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,13 +613,13 @@ MonoBehaviour:
   pools:
   - tag: enemy1
     prefab: {fileID: 2991505004193500428, guid: 7126d355504624d47acfd3238277202d, type: 3}
-    size: 150
+    size: 10
   - tag: enemy2
     prefab: {fileID: 8074223809656428511, guid: 6224cae10bf5e054da122931e5fb1ef6, type: 3}
-    size: 150
+    size: 10
   - tag: enemy3
     prefab: {fileID: 74661151909574750, guid: 6d1deaa1bd231a14a9c43b01bc12abe9, type: 3}
-    size: 150
+    size: 10
   - tag: projectile
     prefab: {fileID: 1901422814893075490, guid: 3afd9cc5bf5318a4a907a96536107d82, type: 3}
     size: 1
