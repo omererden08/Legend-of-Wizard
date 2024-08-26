@@ -53,14 +53,15 @@ public class WaveManager : MonoBehaviour
     }
 
     void ChangeEnemy()
-    {
+    { 
+
         if(goblinChance >= 10)
         {
             goblinChance -= 5;
         }
         if (goblinChance <= 50 && banditChance <= 50)
         {
-            banditChance += 10;
+            banditChance += 5;
         }
         if(banditChance >= 40 && ogreChance <= 30)
         {
@@ -74,7 +75,7 @@ public class WaveManager : MonoBehaviour
         while(true)
         {
             EnemySpawn();
-            print("random number" + randomNumber);
+         //   print("random number" + randomNumber);
             yield return new WaitForSeconds(spawnInterval);
         }       
     }
