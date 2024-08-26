@@ -229,6 +229,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1264269759}
+--- !u!1 &817687731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 817687732}
+  - component: {fileID: 817687733}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &817687732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817687731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.91843355, y: -0.28428453, z: -0.016751321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &817687733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817687731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 152dac42ad6fea845bb01730a73c2988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 1015879086}
+  waveInterval: 1
 --- !u!1 &1015879085
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73cb7a1763bca7747acf2fc70a420179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
+  speed: 50
   isRight: 0
 --- !u!95 &1264269764
 Animator:
@@ -613,16 +659,16 @@ MonoBehaviour:
   pools:
   - tag: enemy1
     prefab: {fileID: 2991505004193500428, guid: 7126d355504624d47acfd3238277202d, type: 3}
-    size: 10
+    size: 150
   - tag: enemy2
     prefab: {fileID: 8074223809656428511, guid: 6224cae10bf5e054da122931e5fb1ef6, type: 3}
-    size: 10
+    size: 150
   - tag: enemy3
     prefab: {fileID: 74661151909574750, guid: 6d1deaa1bd231a14a9c43b01bc12abe9, type: 3}
-    size: 10
+    size: 150
   - tag: projectile
     prefab: {fileID: 1901422814893075490, guid: 3afd9cc5bf5318a4a907a96536107d82, type: 3}
-    size: 1
+    size: 20
   - tag: experience
     prefab: {fileID: 4388913920233232816, guid: fea54d180eb981b4dbd4a1136930611d, type: 3}
     size: 100
@@ -651,3 +697,4 @@ SceneRoots:
   - {fileID: 1427374937}
   - {fileID: 1602702639}
   - {fileID: 2070121113}
+  - {fileID: 817687732}

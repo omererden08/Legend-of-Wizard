@@ -27,7 +27,7 @@ public class HealthSystem : MonoBehaviour
     private void Start()
     {
         currentHealth = health;
-        print("current health = " + currentHealth);
+     //   print("current health = " + currentHealth);
     }
     public void PlayerTakeDamage(int damage)
     {

@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, IPooledObject
         rb = GetComponent<Rigidbody2D>();
         healthSystem = FindAnyObjectByType<HealthSystem>();
         rb.mass = 0;
-        bulletDamage = 20;
+        bulletDamage = 100;
         health = enemyData.enemyHealth;
     }
 

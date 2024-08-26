@@ -31,12 +31,12 @@ public class ExperienceSystem : MonoBehaviour
         currentExperience = 0;
         maxExperience = 100;
         newExperience = 20;
-        print(maxExperience + "need exp to level up");
+      //  print(maxExperience + "need exp to level up");
     }
     public void HandleExperienceChange()
     {    
         currentExperience += newExperience;
-        print("current exp = " + currentExperience);
+      //  print("current exp = " + currentExperience);
         if (currentExperience >= maxExperience)
         {
             LevelUp();
@@ -45,10 +45,10 @@ public class ExperienceSystem : MonoBehaviour
 
     void LevelUp()
     {
-        print("level up"); //delaying collect next exp
+       // print("level up"); //delaying collect next exp
         currentExperience = 0;
         currentLevel += 1;
         maxExperience *= 2;
-        print(maxExperience + "need exp to level up");
+      //  print(maxExperience + "need exp to level up");
     }
 }

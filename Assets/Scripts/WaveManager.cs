@@ -1,19 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
     public Spawner spawner;
-    private int currentWave;
     private float timer;
+    [SerializeField]
     private float waveInterval;
-
+    private float spawnInterval;
+    private int goblinChance;
+    private int banditChance;
+    private int ogreChance;
+    private int randomNumber;
 
     private void Start()
     {
-        currentWave = 0;
-        waveInterval = 20f;
+       // waveInterval = 10f;
+        spawnInterval = 2.5f;
+        goblinChance = 100;
+        goblinChance = 100 - (banditChance + ogreChance);
+        StartCoroutine(EnemySpawner());
     }
 
 
@@ -28,35 +34,50 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void EnemyChance()
+    void EnemySpawn()
     {
-        int randomNumber = Random.Range(1, 100);
+        randomNumber = Random.Range(1, 100);
 
-    
-
-    }
-
-
-    void ChangeEnemy()
-    {
-        currentWave++;
-
-        switch (currentWave)
+        if(randomNumber <= goblinChance) 
         {
-            case 1:
-                spawner.SpawnGoblin();
-                break;
-
-            case 2:
-                break;
-
-            default:
-                
-                break;
+            spawner.SpawnGoblin();
+        }
+        if(randomNumber <= banditChance)
+        {
+            spawner.SpawnBandit();
+        }
+        if(randomNumber <= ogreChance)
+        {
+            spawner.SpawnOgre();
         }
     }
 
+    void ChangeEnemy()
+    {
+        if(goblinChance >= 10)
+        {
+            goblinChance -= 5;
+        }
+        if (goblinChance <= 50 && banditChance <= 50)
+        {
+            banditChance += 10;
+        }
+        if(banditChance >= 40 && ogreChance <= 30)
+        {
+            ogreChance += 5;
+        }
 
+    }
+    
+    IEnumerator EnemySpawner()
+    {
+        while(true)
+        {
+            EnemySpawn();
+            print("random number" + randomNumber);
+            yield return new WaitForSeconds(spawnInterval);
+        }       
+    }
 
 
 

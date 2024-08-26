@@ -31,7 +31,7 @@ public class Experience : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (rb != null)
+        if(rb != null)
         {
             float distance = Vector2.Distance(target.position, transform.position);
 
@@ -53,7 +53,7 @@ public class Experience : MonoBehaviour
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
                 rb.MoveRotation(Mathf.LerpAngle(rb.rotation, angle, rotationSpeed * Time.fixedDeltaTime));
-            }
+            } 
         }
     }
 }

@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("SpawnProjectile", 2.5f, 1f);
-        InvokeRepeating("GoblinSpawner", 1f, 1f); 
+      //  InvokeRepeating("GoblinSpawner", 1f, 1f); 
     }
 
     private void Update()
